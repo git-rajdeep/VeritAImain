@@ -14,16 +14,16 @@ interface SourceChipProps {
 
 const tierConfig = {
   1: {
-    color: 'bg-green-v',
-    label: 'Tier 1',
+    color: 'bg-[#4ade80]',
+    label: 'Tier 1 — High Trust',
   },
   2: {
-    color: 'bg-violet-500',
-    label: 'Tier 2',
+    color: 'bg-[#a78bfa]',
+    label: 'Tier 2 — Moderate Trust',
   },
   3: {
-    color: 'bg-muted-v',
-    label: 'Tier 3',
+    color: 'bg-[#737373]',
+    label: 'Tier 3 — Low Trust',
   },
 }
 

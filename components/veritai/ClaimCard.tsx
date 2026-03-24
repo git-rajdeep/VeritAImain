@@ -120,7 +120,59 @@ export function ClaimCard({ claim, index, defaultExpanded = false, className }: 
               
               {/* Sources */}
               <div>
-                <span className="text-xs text-muted-v font-medium block mb-2">Sources:</span>
+                <div className="flex items-center gap-1.5 mb-2">
+                  <span className="text-xs text-muted-v font-medium">Sources:</span>
+
+                  {/* Tier info button */}
+                  <div className="relative group/tier">
+                    <button
+                      type="button"
+                      className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold text-muted-v border border-border-v hover:border-violet-500/50 hover:text-violet-400 transition-all duration-150 cursor-default leading-none"
+                      aria-label="Source tier information"
+                    >
+                      i
+                    </button>
+
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-0 mb-2 z-50 pointer-events-none opacity-0 group-hover/tier:opacity-100 transition-opacity duration-200">
+                      <div className="bg-[#0D1021] border border-[#1E2340] rounded-xl p-3 w-[210px] shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+                        <p className="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">
+                          Source Trust Tiers
+                        </p>
+
+                        {/* Tier 1 */}
+                        <div className="flex items-start gap-2.5 mb-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#4ade80] shrink-0 mt-[3px]" />
+                          <div>
+                            <p className="text-[11px] font-semibold text-white leading-tight">Tier 1 — High Trust</p>
+                            <p className="text-[10px] text-neutral-500 leading-snug mt-0.5">Reuters, BBC, Gov sites, Academic journals</p>
+                          </div>
+                        </div>
+
+                        {/* Tier 2 */}
+                        <div className="flex items-start gap-2.5 mb-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#a78bfa] shrink-0 mt-[3px]" />
+                          <div>
+                            <p className="text-[11px] font-semibold text-white leading-tight">Tier 2 — Moderate Trust</p>
+                            <p className="text-[10px] text-neutral-500 leading-snug mt-0.5">Established news outlets, Wikipedia</p>
+                          </div>
+                        </div>
+
+                        {/* Tier 3 */}
+                        <div className="flex items-start gap-2.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#737373] shrink-0 mt-[3px]" />
+                          <div>
+                            <p className="text-[11px] font-semibold text-white leading-tight">Tier 3 — Low Trust</p>
+                            <p className="text-[10px] text-neutral-500 leading-snug mt-0.5">Blogs, forums, unverified sources</p>
+                          </div>
+                        </div>
+
+                        {/* Tooltip arrow */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#1E2340]" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {claim.sources.map((source, idx) => (
                     <SourceChip
